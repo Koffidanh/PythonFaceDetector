@@ -28,7 +28,14 @@ while True:
 
 # Display the image with the faces
     cv2.imshow('ShowFace', grayScaled_img)
-    cv2.waitKey(1)
+    key = cv2.waitKey(1)
 
+# Stop if Q key is pressed
+    if key == 81 or key == 113:
+        break
+
+# Release the videoCapture object
+
+webcam.release()
 
 print("\nCode Completed\n")
