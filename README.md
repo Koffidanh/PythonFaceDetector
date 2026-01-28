@@ -55,46 +55,7 @@ If you choose **video** mode, the script will:
 - Draw rectangles around detected faces on each frame.
 - Display the video feed with the detected faces.
 
-## Code Example
 
-```python
-import cv2
-
-# Load pre-trained data on face frontals from OpenCV
-trained_face_data = cv2.CascadeClassifier('haarcascade_frontalface_alt_tree.xml')
-
-# Choose between image or video detection
-ans = input("Do you want to try the image or video detector? (type img for image or vid for video)")
-
-if ans == "image" or ans == "img":
-    img = cv2.imread('img/download (5).jpg')
-    grayScaled_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    face_coordinates = trained_face_data.detectMultiScale(grayScaled_img)
-    
-    for (x, y, w, h) in face_coordinates:
-        cv2.rectangle(grayScaled_img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-    
-    cv2.imshow('ShowFace', grayScaled_img)
-    cv2.waitKey()
-
-elif ans == "video" or ans == "vid":
-    webcam = cv2.VideoCapture(0)
-    
-    while True:
-        successful_frame_read, frame = webcam.read()
-        grayScaled_vid = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        face_coordinates = trained_face_data.detectMultiScale(grayScaled_vid)
-        
-        for (x, y, w, h) in face_coordinates:
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-        
-        cv2.imshow('ShowFace', frame)
-        key = cv2.waitKey(1)
-    
-        if key == 81 or key == 113:  # Quit if 'Q' key is pressed
-            break
-    
-    webcam.release()
 
 else:
     print("\nCode Completed\n")
