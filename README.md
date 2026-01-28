@@ -56,11 +56,3 @@ If you choose **video** mode, the script will:
 - Display the video feed with the detected faces.
 
 
-
-else:
-    print("\nCode Completed\n")
-Resources
-OpenCV Documentation: OpenCV.org
-CleverProgrammer: Helpful tutorials on OpenCV and Python.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
